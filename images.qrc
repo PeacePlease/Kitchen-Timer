@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/hobs">
+        <file>images/whole.png</file>
+        <file>images/BG.png</file>
+        <file>images/whiteBorder.png</file>
+        <file>images/hobBL.png</file>
+        <file>images/hobBR.png</file>
+        <file>images/hobTL.png</file>
+        <file>images/hobTR.png</file>
+        <file>images/BottomOven.png</file>
+        <file>images/TopOven.png</file>
+    </qresource>
+</RCC>
