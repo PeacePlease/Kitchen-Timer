@@ -21,6 +21,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -34,14 +35,19 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QFrame *frame;
-    QFrame *hob2;
-    QFrame *hob4;
-    QFrame *hob3;
-    QFrame *hob1;
-    QLabel *duration;
+    QFrame *hobTR;
+    QLabel *durationTR;
+    QFrame *hobBL;
+    QLabel *durationBL;
+    QFrame *hobBR;
+    QLabel *durationBR;
+    QFrame *hobTL;
+    QLabel *durationTL;
     QFrame *frame_2;
+    QLabel *durationTopOven;
     QFrame *frame_3;
-    QLineEdit *lineEdit;
+    QLabel *durationBotOven;
+    QLineEdit *lineEditDurTL;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
@@ -55,21 +61,22 @@ public:
     QFrame *line_3;
     QFrame *line_4;
     QFrame *line_5;
-    QLineEdit *lineEdit_2;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_5;
-    QLineEdit *lineEdit_6;
+    QLineEdit *lineEditDurTR;
+    QLineEdit *lineEditDurBL;
+    QLineEdit *lineEditDurBR;
+    QLineEdit *lineEditDurTopOven;
+    QLineEdit *lineEditDurBotOven;
     QLabel *label_9;
     QLabel *label_10;
     QLabel *label_11;
     QLabel *label_12;
-    QLineEdit *lineEdit_7;
-    QLineEdit *lineEdit_8;
-    QLineEdit *lineEdit_9;
-    QLineEdit *lineEdit_10;
-    QLineEdit *lineEdit_11;
-    QLineEdit *lineEdit_12;
+    QLineEdit *lineEditNameTL;
+    QLineEdit *lineEditNameTR;
+    QLineEdit *lineEditNameBL;
+    QLineEdit *lineEditNameBR;
+    QLineEdit *lineEditNameTopOven;
+    QLineEdit *lineEditNameBotOven;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QMenu *menuKitchen_Timer;
     QToolBar *mainToolBar;
@@ -105,46 +112,95 @@ public:
         frame->setStyleSheet(QStringLiteral("border-image: url(:/hobs/images/BG.png);"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        hob2 = new QFrame(frame);
-        hob2->setObjectName(QStringLiteral("hob2"));
-        hob2->setGeometry(QRect(260, 20, 231, 221));
-        hob2->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobTR.png);\n"
+        hobTR = new QFrame(frame);
+        hobTR->setObjectName(QStringLiteral("hobTR"));
+        hobTR->setGeometry(QRect(260, 20, 231, 221));
+        hobTR->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobTR.png);\n"
 "border:none;\n"
 "border-image:none;"));
-        hob2->setFrameShape(QFrame::StyledPanel);
-        hob2->setFrameShadow(QFrame::Raised);
-        hob4 = new QFrame(frame);
-        hob4->setObjectName(QStringLiteral("hob4"));
-        hob4->setGeometry(QRect(20, 240, 241, 251));
-        hob4->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobBL.png);\n"
+        hobTR->setFrameShape(QFrame::StyledPanel);
+        hobTR->setFrameShadow(QFrame::Raised);
+        durationTR = new QLabel(hobTR);
+        durationTR->setObjectName(QStringLiteral("durationTR"));
+        durationTR->setGeometry(QRect(90, 100, 61, 16));
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 255, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        QBrush brush1(QColor(120, 120, 120, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush1);
+        durationTR->setPalette(palette);
+        durationTR->setAlignment(Qt::AlignCenter);
+        hobBL = new QFrame(frame);
+        hobBL->setObjectName(QStringLiteral("hobBL"));
+        hobBL->setGeometry(QRect(20, 240, 241, 251));
+        hobBL->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobBL.png);\n"
 "border:none;\n"
 "border-image:none;"));
-        hob4->setFrameShape(QFrame::StyledPanel);
-        hob4->setFrameShadow(QFrame::Raised);
-        hob3 = new QFrame(frame);
-        hob3->setObjectName(QStringLiteral("hob3"));
-        hob3->setGeometry(QRect(260, 240, 251, 251));
-        hob3->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobBR.png);\n"
+        hobBL->setFrameShape(QFrame::StyledPanel);
+        hobBL->setFrameShadow(QFrame::Raised);
+        durationBL = new QLabel(hobBL);
+        durationBL->setObjectName(QStringLiteral("durationBL"));
+        durationBL->setGeometry(QRect(80, 130, 61, 16));
+        QPalette palette1;
+        palette1.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette1.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
+        palette1.setBrush(QPalette::Disabled, QPalette::Text, brush1);
+        durationBL->setPalette(palette1);
+        durationBL->setAlignment(Qt::AlignCenter);
+        hobBR = new QFrame(frame);
+        hobBR->setObjectName(QStringLiteral("hobBR"));
+        hobBR->setGeometry(QRect(260, 240, 251, 251));
+        hobBR->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobBR.png);\n"
 "border:none;\n"
 "border-image:none;"));
-        hob3->setFrameShape(QFrame::StyledPanel);
-        hob3->setFrameShadow(QFrame::Raised);
-        hob1 = new QFrame(frame);
-        hob1->setObjectName(QStringLiteral("hob1"));
-        hob1->setGeometry(QRect(20, 20, 241, 221));
-        hob1->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobTL.png);\n"
+        hobBR->setFrameShape(QFrame::StyledPanel);
+        hobBR->setFrameShadow(QFrame::Raised);
+        durationBR = new QLabel(hobBR);
+        durationBR->setObjectName(QStringLiteral("durationBR"));
+        durationBR->setGeometry(QRect(90, 140, 61, 16));
+        QPalette palette2;
+        palette2.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette2.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette2.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette2.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette2.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
+        palette2.setBrush(QPalette::Disabled, QPalette::Text, brush1);
+        durationBR->setPalette(palette2);
+        durationBR->setAlignment(Qt::AlignCenter);
+        hobTL = new QFrame(frame);
+        hobTL->setObjectName(QStringLiteral("hobTL"));
+        hobTL->setGeometry(QRect(20, 20, 241, 221));
+        hobTL->setStyleSheet(QLatin1String("image: url(:/hobs/images/hobTL.png);\n"
 "border-image: none;\n"
 "border:none;"));
-        hob1->setFrameShape(QFrame::StyledPanel);
-        hob1->setFrameShadow(QFrame::Plain);
-        hob1->setLineWidth(0);
-        duration = new QLabel(hob1);
-        duration->setObjectName(QStringLiteral("duration"));
-        duration->setGeometry(QRect(60, 90, 61, 16));
-        hob2->raise();
-        hob3->raise();
-        hob4->raise();
-        hob1->raise();
+        hobTL->setFrameShape(QFrame::StyledPanel);
+        hobTL->setFrameShadow(QFrame::Plain);
+        hobTL->setLineWidth(0);
+        durationTL = new QLabel(hobTL);
+        durationTL->setObjectName(QStringLiteral("durationTL"));
+        durationTL->setGeometry(QRect(60, 90, 61, 16));
+        QPalette palette3;
+        palette3.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette3.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette3.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette3.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette3.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
+        palette3.setBrush(QPalette::Disabled, QPalette::Text, brush1);
+        durationTL->setPalette(palette3);
+        durationTL->setAlignment(Qt::AlignCenter);
+        hobTR->raise();
+        hobBR->raise();
+        hobBL->raise();
+        hobTL->raise();
 
         gridLayout->addWidget(frame, 0, 0, 1, 1);
 
@@ -154,15 +210,39 @@ public:
         frame_2->setStyleSheet(QStringLiteral("image: url(:/hobs/images/TopOven.png);"));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
+        durationTopOven = new QLabel(frame_2);
+        durationTopOven->setObjectName(QStringLiteral("durationTopOven"));
+        durationTopOven->setGeometry(QRect(170, 100, 61, 16));
+        QPalette palette4;
+        palette4.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette4.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette4.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette4.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette4.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
+        palette4.setBrush(QPalette::Disabled, QPalette::Text, brush1);
+        durationTopOven->setPalette(palette4);
+        durationTopOven->setAlignment(Qt::AlignCenter);
         frame_3 = new QFrame(centralWidget);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(560, 220, 401, 321));
         frame_3->setStyleSheet(QStringLiteral("image: url(:/hobs/images/BottomOven.png);"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
-        lineEdit = new QLineEdit(centralWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(1090, 90, 113, 20));
+        durationBotOven = new QLabel(frame_3);
+        durationBotOven->setObjectName(QStringLiteral("durationBotOven"));
+        durationBotOven->setGeometry(QRect(170, 100, 61, 16));
+        QPalette palette5;
+        palette5.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette5.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette5.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette5.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette5.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
+        palette5.setBrush(QPalette::Disabled, QPalette::Text, brush1);
+        durationBotOven->setPalette(palette5);
+        durationBotOven->setAlignment(Qt::AlignCenter);
+        lineEditDurTL = new QLineEdit(centralWidget);
+        lineEditDurTL->setObjectName(QStringLiteral("lineEditDurTL"));
+        lineEditDurTL->setGeometry(QRect(1090, 90, 113, 20));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(980, 50, 81, 16));
@@ -214,21 +294,21 @@ public:
         line_5->setGeometry(QRect(980, 201, 361, 20));
         line_5->setFrameShape(QFrame::HLine);
         line_5->setFrameShadow(QFrame::Sunken);
-        lineEdit_2 = new QLineEdit(centralWidget);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(1090, 120, 113, 20));
-        lineEdit_3 = new QLineEdit(centralWidget);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(1090, 150, 113, 20));
-        lineEdit_4 = new QLineEdit(centralWidget);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(1090, 180, 113, 20));
-        lineEdit_5 = new QLineEdit(centralWidget);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
-        lineEdit_5->setGeometry(QRect(1090, 260, 113, 20));
-        lineEdit_6 = new QLineEdit(centralWidget);
-        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
-        lineEdit_6->setGeometry(QRect(1090, 290, 113, 20));
+        lineEditDurTR = new QLineEdit(centralWidget);
+        lineEditDurTR->setObjectName(QStringLiteral("lineEditDurTR"));
+        lineEditDurTR->setGeometry(QRect(1090, 120, 113, 20));
+        lineEditDurBL = new QLineEdit(centralWidget);
+        lineEditDurBL->setObjectName(QStringLiteral("lineEditDurBL"));
+        lineEditDurBL->setGeometry(QRect(1090, 150, 113, 20));
+        lineEditDurBR = new QLineEdit(centralWidget);
+        lineEditDurBR->setObjectName(QStringLiteral("lineEditDurBR"));
+        lineEditDurBR->setGeometry(QRect(1090, 180, 113, 20));
+        lineEditDurTopOven = new QLineEdit(centralWidget);
+        lineEditDurTopOven->setObjectName(QStringLiteral("lineEditDurTopOven"));
+        lineEditDurTopOven->setGeometry(QRect(1090, 260, 113, 20));
+        lineEditDurBotOven = new QLineEdit(centralWidget);
+        lineEditDurBotOven->setObjectName(QStringLiteral("lineEditDurBotOven"));
+        lineEditDurBotOven->setGeometry(QRect(1090, 290, 113, 20));
         label_9 = new QLabel(centralWidget);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(1090, 50, 81, 16));
@@ -245,24 +325,27 @@ public:
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setGeometry(QRect(1220, 220, 101, 16));
         label_12->setStyleSheet(QStringLiteral("font: 10pt \"MS Shell Dlg 2\";"));
-        lineEdit_7 = new QLineEdit(centralWidget);
-        lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
-        lineEdit_7->setGeometry(QRect(1220, 90, 113, 20));
-        lineEdit_8 = new QLineEdit(centralWidget);
-        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
-        lineEdit_8->setGeometry(QRect(1220, 120, 113, 20));
-        lineEdit_9 = new QLineEdit(centralWidget);
-        lineEdit_9->setObjectName(QStringLiteral("lineEdit_9"));
-        lineEdit_9->setGeometry(QRect(1220, 150, 113, 20));
-        lineEdit_10 = new QLineEdit(centralWidget);
-        lineEdit_10->setObjectName(QStringLiteral("lineEdit_10"));
-        lineEdit_10->setGeometry(QRect(1220, 180, 113, 20));
-        lineEdit_11 = new QLineEdit(centralWidget);
-        lineEdit_11->setObjectName(QStringLiteral("lineEdit_11"));
-        lineEdit_11->setGeometry(QRect(1220, 260, 113, 20));
-        lineEdit_12 = new QLineEdit(centralWidget);
-        lineEdit_12->setObjectName(QStringLiteral("lineEdit_12"));
-        lineEdit_12->setGeometry(QRect(1220, 290, 113, 20));
+        lineEditNameTL = new QLineEdit(centralWidget);
+        lineEditNameTL->setObjectName(QStringLiteral("lineEditNameTL"));
+        lineEditNameTL->setGeometry(QRect(1220, 90, 113, 20));
+        lineEditNameTR = new QLineEdit(centralWidget);
+        lineEditNameTR->setObjectName(QStringLiteral("lineEditNameTR"));
+        lineEditNameTR->setGeometry(QRect(1220, 120, 113, 20));
+        lineEditNameBL = new QLineEdit(centralWidget);
+        lineEditNameBL->setObjectName(QStringLiteral("lineEditNameBL"));
+        lineEditNameBL->setGeometry(QRect(1220, 150, 113, 20));
+        lineEditNameBR = new QLineEdit(centralWidget);
+        lineEditNameBR->setObjectName(QStringLiteral("lineEditNameBR"));
+        lineEditNameBR->setGeometry(QRect(1220, 180, 113, 20));
+        lineEditNameTopOven = new QLineEdit(centralWidget);
+        lineEditNameTopOven->setObjectName(QStringLiteral("lineEditNameTopOven"));
+        lineEditNameTopOven->setGeometry(QRect(1220, 260, 113, 20));
+        lineEditNameBotOven = new QLineEdit(centralWidget);
+        lineEditNameBotOven->setObjectName(QStringLiteral("lineEditNameBotOven"));
+        lineEditNameBotOven->setGeometry(QRect(1220, 290, 113, 20));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(1110, 350, 111, 41));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -287,7 +370,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        duration->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        durationTR->setText(QString());
+        durationBL->setText(QString());
+        durationBR->setText(QString());
+        durationTL->setText(QString());
+        durationTopOven->setText(QString());
+        durationBotOven->setText(QString());
         label->setText(QApplication::translate("MainWindow", "Hob", 0));
         label_2->setText(QApplication::translate("MainWindow", "Top left", 0));
         label_3->setText(QApplication::translate("MainWindow", "Top right", 0));
@@ -300,6 +388,7 @@ public:
         label_10->setText(QApplication::translate("MainWindow", "Duration", 0));
         label_11->setText(QApplication::translate("MainWindow", "Name (optional)", 0));
         label_12->setText(QApplication::translate("MainWindow", "Name (optional)", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Start!", 0));
         menuKitchen_Timer->setTitle(QApplication::translate("MainWindow", "Kitchen Timer", 0));
     } // retranslateUi
 
